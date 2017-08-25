@@ -1,0 +1,16 @@
+1) What is Orphan and Zombie Processes?
+
+Solution:
+
+Orphan process:
+When a parent process creates a child process, the parent has to wait till the child completes and then terminate. 
+Instead, if the parent terminates before the child and leaves the child process running and unattended, then that abandoned child process is called an orphan process.
+
+Zombie Process:
+After forking(executing the fork() command), a parent process creates a child process. The parent process waits for the child to complete its execution. Once the child completes its execution, this information has to be intimated to the parent process through wait(), hence the child process stays in the process table even after completion. If the child process is not taken off the process table, even after its completion, then the child process becomes a zombie process.  
+
+2) What are the changes that occur when the child process calls the exec system call to execute a new program?
+
+Solution:
+
+When an exec() system call is made from a child process, the child proocess code is replaced with a new compiled code mentioned in the exec() call. The address space of thee child process is replaced with a new program and the child process executes the new prgram instead of the parent program code.
