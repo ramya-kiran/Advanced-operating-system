@@ -79,13 +79,13 @@ extern 	shellcmd xsh_hello	(int32,	char *[]);
 /* in file xsh_mmu.c */
 extern  shellcmd xsh_mmu	(int32, char *[]);
 
-
+<<<<<<< HEAD
 /* in file xsh_hello.c */
 extern shellcmd xsh_hello       (int32, char *[]);
-
+=======
 extern shellcmd xsh_create_example(int, char *[]);
 extern shellcmd xsh_polling_example(int, char *[]);
 extern shellcmd xsh_semaphore_example(int, char *[]);
 extern shellcmd xsh_message_example(int, char *[]);
 extern shellcmd xsh_arg_example(int, char*[]);
-
+>>>>>>> 86926ea2321e4315a212f4cd0e5f6cf7447f73cb
