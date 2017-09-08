@@ -22,7 +22,15 @@ const	struct	cmdent	cmdtab[] = {
 	{"ps",		FALSE,	xsh_ps},
 	{"sleep",	FALSE,	xsh_sleep},
 	{"uptime",	FALSE,	xsh_uptime},
+<<<<<<< HEAD
 	{"hello",       FALSE,  xsh_hello},
+=======
+    {"create_example", FALSE, xsh_create_example},
+    {"polling_example", FALSE, xsh_polling_example},
+    {"semaphore_example", FALSE, xsh_semaphore_example},
+    {"message_example", FALSE, xsh_message_example},
+    {"arg_example", FALSE, xsh_arg_example},
+>>>>>>> 86926ea2321e4315a212f4cd0e5f6cf7447f73cb
 #ifdef ARM_BBB
   {"arp",		FALSE,	xsh_arp},
   {"ipaddr",	FALSE,	xsh_ipaddr},
