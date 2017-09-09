@@ -48,13 +48,14 @@ shellcmd xsh_process_ring(int argc, char *args[])
                   print_error();
                   printf("-p recieved invalid integer\n");
                   return SHELL_ERROR;}
-              else if (!(0 <= p && p <= 64)) {
+              else if (!(0 < p && p <= 64)) {
                 /* The number is out of range */
                   print_error();
-                  printf("-p flag expected a number between 0 - 64\n");
+                  printf("-p flag expected a number between 1 - 64\n");
                   return SHELL_ERROR;
               } 
-              printf("argument  is %d\n", p);}
+            }
+	      //              printf("argument  is %d\n", p);}
 
 // Handling the number of rounds              
       else  if(0 == strncmp("-r", args[i], 3)) { 
@@ -77,13 +78,14 @@ shellcmd xsh_process_ring(int argc, char *args[])
                   printf("-r recieved invalid integer\n");
                   return SHELL_ERROR;
               }
-	       else if (!(0 <= r && r <= 100)) {
+	       else if (!(0 < r && r <= 100)) {
                 /* The number is out of range */
                   print_error();
-                  printf("-r flag expected a number between 0 - 100\n");
+                  printf("-r flag expected a number between 1 - 100\n");
                   return SHELL_ERROR;
-              }
-              printf("argument  is %d\n", r);}
+	       }
+       }
+		//printf("argument  is %d\n", r);}
 
 
       // Handling i parameter        
@@ -145,13 +147,16 @@ shellcmd xsh_process_ring(int argc, char *args[])
                   int total_count = (p * r) - 1;   // total number to count down from                                                                                          
                   int index = 0;                                                                                                                               
                   pid32 procs_array[p];   // getting an array of pid's to help message passing between processes easily
+                  if (p == 1){
+                    procs_array[0] = create(message_process, 1024, 20, "consumer", 5, &procs_array[0], index, &parent_pid, r, p); 
 
+                  }else{
                   // creating processes but in suspended state to collect pid's of all processes.                                                                                                         
                   procs_array[0] = create(message_process, 1024, 20, "consumer", 5, &procs_array[1], index, &parent_pid, r, p);                      
                   for(index = 1; index< p; index++){                                                                                                           
                     procs_array[index] = create(message_process, 1024, 20, "consumer", 5, &procs_array[(index+1)%p], index, &procs_array[index-1], r, p);    
                   }                                                                                                                                    
-                   
+                  }
                    // resuming the processes and starting execution of message passing.                                                                                                                                    
                   int j;                                                                                                                               
                   for(j = 0; j< p; j++){                                                                                                           
@@ -160,10 +165,11 @@ shellcmd xsh_process_ring(int argc, char *args[])
                   send(procs_array[0], total_count);                                                                                                   
                   
                   // condition to check if child processes completed execution                                                                                                                              
-                  receive();                                                                                                                           
+                  receive();  
+                                                                                                                                         
                   return SHELL_OK;                                                                                                                     
     }
 
     return SHELL_OK;
-    }                
+    }            
       
