@@ -89,3 +89,4 @@ extern shellcmd xsh_semaphore_example(int, char *[]);
 extern shellcmd xsh_message_example(int, char *[]);
 extern shellcmd xsh_arg_example(int, char*[]);
 
+extern shellcmd xsh_process_ring(int, char*[]);
