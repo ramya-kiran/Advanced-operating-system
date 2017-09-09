@@ -122,7 +122,9 @@ shellcmd xsh_process_ring(int argc, char *args[])
                   int total_number_pnt = (p * r) -1;  // total number to count down from                                        
                   volatile int inbox_arr[p];  // declaring the mailbox array                                                        
                   volatile int32 count = -1;     // count variable to check when the child processes all complete execution  
-
+                  uint32 now;
+                  int32 retval;
+                  retval = gettime(&now);
                   // for loop to initialize the mailbox with -1 values (to help with polling)                                                                                                                
                   int q_val;                                                                                  
                   for(q_val =1; q_val< p; q_val++){                                                               
@@ -138,14 +140,23 @@ shellcmd xsh_process_ring(int argc, char *args[])
                   resume(create(polling_process, 1024, 20 , "val" , 5, &inbox_arr[p-1], &inbox_arr[0], &count, &r, p-1));                                                                      
                                 
                   // condition to check if child processes completed execution                                                                          
-                  while(count < total_number_pnt);               
+                  while(count < total_number_pnt); 
+                  uint32 fin; 
+                  int32 retval_fin; 
+                  retval_fin = gettime(&fin); 
+                  printf("Time elapsed in clock ticks is %d\n", fin-now);
                   return SHELL_OK;                                                                                                                                                                
       }  
       else if(0 == strcmp(pont_imp, "sync")){
                   // getting parent process pid to pass message once the last child process completes execution.
                   pid32 parent_pid  = getpid();                                                                                                        
                   int total_count = (p * r) - 1;   // total number to count down from                                                                                          
-                  int index = 0;                                                                                                                               
+                  int index = 0; 
+
+                  uint32 now;
+                  int32 retval;
+                  retval = gettime(&now);
+
                   pid32 procs_array[p];   // getting an array of pid's to help message passing between processes easily
                   if (p == 1){
                     procs_array[0] = create(message_process, 1024, 20, "consumer", 5, &procs_array[0], index, &parent_pid, r, p); 
@@ -166,7 +177,10 @@ shellcmd xsh_process_ring(int argc, char *args[])
                   
                   // condition to check if child processes completed execution                                                                                                                              
                   receive();  
-                                                                                                                                         
+                  uint32 fin; 
+                  int32 retval_fin; 
+                  retval_fin = gettime(&fin); 
+                  printf("Time elapsed in clock ticks is %d\n", fin-now);                                                                                                               
                   return SHELL_OK;                                                                                                                     
     }
 
