@@ -13416,60 +13416,60 @@ Linker script and memory map
                 0x00000000       0x38 binaries/xsh_polling_example.o
  *fill*         0x0001d293        0x1 
  .rodata.str1.4
-                0x0001d294      0x214 binaries/xsh_process_ring.o
+                0x0001d294      0x240 binaries/xsh_process_ring.o
                                 0x2bc (size before relaxing)
- .rodata        0x0001d4a8       0x20 binaries/xsh_ps.o
+ .rodata        0x0001d4d4       0x20 binaries/xsh_ps.o
  .rodata.str1.4
-                0x0001d4c8      0x12a binaries/xsh_ps.o
+                0x0001d4f4      0x12a binaries/xsh_ps.o
                                 0x1d4 (size before relaxing)
  .rodata.str1.4
                 0x00000000       0x38 binaries/xsh_sem_example.o
- *fill*         0x0001d5f2        0x2 
+ *fill*         0x0001d61e        0x2 
  .rodata.str1.4
-                0x0001d5f4       0x5e binaries/xsh_sleep.o
+                0x0001d620       0x5e binaries/xsh_sleep.o
                                  0xf8 (size before relaxing)
- *fill*         0x0001d652        0x2 
+ *fill*         0x0001d67e        0x2 
  .rodata.str1.4
-                0x0001d654       0x77 binaries/xsh_uptime.o
+                0x0001d680       0x77 binaries/xsh_uptime.o
                                 0x114 (size before relaxing)
- *fill*         0x0001d6cb        0x1 
+ *fill*         0x0001d6f7        0x1 
  .rodata.str1.4
-                0x0001d6cc       0x29 binaries/process_ring.o
+                0x0001d6f8       0x29 binaries/process_ring.o
                                  0x2c (size before relaxing)
- *fill*         0x0001d6f5        0x3 
+ *fill*         0x0001d721        0x3 
  .rodata.str1.4
-                0x0001d6f8       0x86 binaries/naminit.o
+                0x0001d724       0x86 binaries/naminit.o
                                  0x90 (size before relaxing)
- *fill*         0x0001d77e        0x2 
+ *fill*         0x0001d7aa        0x2 
  .rodata.str1.4
-                0x0001d780        0x9 binaries/raminit.o
+                0x0001d7ac        0x9 binaries/raminit.o
                                   0xc (size before relaxing)
- *fill*         0x0001d789        0x3 
+ *fill*         0x0001d7b5        0x3 
  .rodata.str1.4
-                0x0001d78c       0x37 binaries/lfdballoc.o
+                0x0001d7b8       0x37 binaries/lfdballoc.o
                                  0x38 (size before relaxing)
- *fill*         0x0001d7c3        0x1 
+ *fill*         0x0001d7ef        0x1 
  .rodata.str1.4
-                0x0001d7c4       0x14 binaries/lfiballoc.o
+                0x0001d7f0       0x14 binaries/lfiballoc.o
  .rodata.str1.4
-                0x0001d7d8       0x23 binaries/lflcontrol.o
+                0x0001d804       0x23 binaries/lflcontrol.o
                                  0x24 (size before relaxing)
- *fill*         0x0001d7fb        0x1 
+ *fill*         0x0001d827        0x1 
  .rodata.str1.4
-                0x0001d7fc       0xbb binaries/lfsckfmt.o
+                0x0001d828       0xbb binaries/lfsckfmt.o
                                  0xbc (size before relaxing)
- *fill*         0x0001d8b7        0x1 
+ *fill*         0x0001d8e3        0x1 
  .rodata.str1.4
-                0x0001d8b8       0xde binaries/uartStat.o
+                0x0001d8e4       0xde binaries/uartStat.o
                                  0xe4 (size before relaxing)
- *fill*         0x0001d996        0x2 
- .rodata        0x0001d998        0x8 binaries/uartHwStat.o
+ *fill*         0x0001d9c2        0x2 
+ .rodata        0x0001d9c4        0x8 binaries/uartHwStat.o
  .rodata.str1.4
-                0x0001d9a0       0x6c binaries/uartHwStat.o
+                0x0001d9cc       0x6c binaries/uartHwStat.o
                                  0x9c (size before relaxing)
-                0x0001da0c                etext = ABSOLUTE (.)
+                0x0001da38                etext = ABSOLUTE (.)
                 0x0001e000                . = ALIGN (0x1000)
- *fill*         0x0001da0c      0x5f4 
+ *fill*         0x0001da38      0x5c8 
 
 .glue_7         0x0001e000        0x0
  .glue_7        0x00000000        0x0 linker stubs
